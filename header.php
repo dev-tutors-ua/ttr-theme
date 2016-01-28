@@ -7,8 +7,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
 
 		<!-- Icons -->
-		<link rel="icon" sizes="192x192" href="<?php echo esc_url(get_theme_mod('themeslug_logo')); ?>">
-		<link rel="apple-touch-icon" href="<?php echo esc_url(get_theme_mod('themeslug_logo')); ?>">
+		<link rel="icon" sizes="192x192" href="<?php echo esc_url(get_theme_mod('tau_logo')); ?>">
+		<link rel="apple-touch-icon" href="<?php echo esc_url(get_theme_mod('tau_logo')); ?>">
 		<link rel="mask-icon" href="<?php echo Get_template_directory_uri()."/" ?>TAU_Logo_Inversed_Apple_Pin.svg" color="red">
 
 		<!-- BootStrap Stylesheets -->
