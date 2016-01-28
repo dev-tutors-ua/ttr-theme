@@ -1,0 +1,394 @@
+/*
+ * Theme Name: Tutor Organisation Theme (Native)
+ * Description: Theme For Ukrainian Tutor Organisation
+ * Author: Fedor Bobylev
+*/
+
+/* ================= Sidebar List Styling ================= */
+.sidebar-body ul{
+	padding: 0px;
+}
+
+.sidebar-body li{
+
+	list-style-type: none;
+	/*margin-bottom: 4px;*/
+
+	padding: 4px;
+	/*border: 1px dashed #ddd;
+	border-radius: 2px;*/
+}
+
+.sidebar-body li a {
+	text-decoration: underline;
+}
+
+.current-menu-item a{
+	text-decoration: none !important;
+
+	color: #000;
+}
+
+/* ================= Main Navbar ================= */
+
+body {
+	/*background-color: #f7f7f7;*/
+}
+
+#nav-logo {
+	margin: 0px;
+	padding: 2px;
+}
+
+#main-nav {
+	/*overflow: hidden !important;*/
+}
+
+/* Menu Style For LARGE Devices (Large Desktops) */
+@media (min-width: 1200px) {
+	#menu-main-menu > li > a{
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+}
+
+/* Menu Style For MEDIUM Devices (Desktops) */
+@media (min-width: 992px) and (max-width: 1200px) {
+	#menu-main-menu > li > a{
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+}
+
+/* Menu Style For SMALL Devices (Tablets) */
+@media (min-width: 768px) and (max-width: 992px) {
+	.navbar-brand{
+		font-size: 14px;
+		padding-left: 0px;
+
+		padding-top: 5px;
+		padding-buttom: 5px;
+	}
+
+	#menu-main-menu > li > a{
+		font-size: 12px;
+
+		padding-left: 5px;
+		padding-right: 5px;
+	}
+
+	#main-nav {
+		padding-right: 0px;
+	}
+}
+
+/* Navbar */
+.navbar-default {
+	border-radius: 0px;
+
+	background-color: #F8981D;
+	border: none;
+}
+
+/* Navbar Branding Area */
+.navbar-default .navbar-brand {
+	color: #f6f6f6;
+
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+/* Navbar Branding Area (Hover) */
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+	color: #eaeaea;
+}
+/* Navbar Branding Area (Logo) */
+.navbar-default .navbar-brand > img {
+	height: 100%;
+}
+
+
+/* Navbar Mobile Menu Button */
+.navbar-default .navbar-toggle {
+	border-color: #fff;
+}
+/* Navbar Mobile Menu Button (Selected) */
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+	background-color: #ff7e00;
+}
+/* Navbar Mobile Menu Button (Icon) */
+.navbar-default .navbar-toggle .icon-bar {
+	background-color: #fff;
+}
+
+
+/* Navbar Item */
+.navbar-default .navbar-nav > li > a {
+	color: #fff;
+}
+/* Navbar Item (Hover) */
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+	color: #eaeaea;
+}
+
+/* Navbar Item (Active) */
+.navbar-default .navbar-nav > .active > a, 
+.navbar-default .navbar-nav > .active > a:hover, 
+.navbar-default .navbar-nav > .active > a:focus,
+
+.navbar-default .navbar-nav > .current-menu-parent > a,
+.navbar-default .navbar-nav > .current-menu-parent > a:hover,
+.navbar-default .navbar-nav > .current-menu-parent > a:focus {
+	color: #fff;
+	background-color: #ffae46;
+}
+/* Navbar Item (Selected) */
+.navbar-default .navbar-nav > .open > a, 
+.navbar-default .navbar-nav > .open > a:hover, 
+.navbar-default .navbar-nav > .open > a:focus {
+	color: #fff;
+	background-color: #ff7e00;
+}
+
+
+/* Navbar Dropdown Arrow */
+.navbar-default .navbar-nav > .dropdown > a .caret {
+	border-top-color: #fff;
+	border-bottom-color: #fff;
+}
+/* Dropdown Menu Item (Active)  */
+.dropdown-menu > .active > a,
+.dropdown-menu > .active > a:hover,
+.dropdown-menu > .active > a:focus {
+	color: #fff;
+	background-color: #ffae46;
+
+	text-decoration: none;
+	outline: 0;
+}
+/* Dropdown Menu (Mobile Style) */
+@media (max-width: 767px) {
+	/* Dropdown Menu Item */
+	.navbar-default .navbar-nav .open .dropdown-menu > li > a {
+		color: #fff;
+	}
+	/* Dropdown Menu Item (Hover) */
+	.navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+	.navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+		color: #eaeaea;
+		background-color: transparent;
+	}
+	/* Dropdown Menu Item (Active) */
+	.navbar-default .navbar-nav .open .dropdown-menu > .active > a,
+	.navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
+	.navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+		color: #fff;
+		background-color: #ffae46;
+	}
+	/* ?Dropdown Menu Item (Disabled) */
+	.navbar-default .navbar-nav .open .dropdown-menu > .disabled > a,
+	.navbar-default .navbar-nav .open .dropdown-menu > .disabled > a:hover,
+	.navbar-default .navbar-nav .open .dropdown-menu > .disabled > a:focus {
+		color: #ccc;
+		/*color: #000;*/
+		background-color: transparent;
+	}
+}
+
+/* ================= Paginaition Bar ================= */
+.nav-pagination > .older {
+	float: left;
+}
+
+.nav-pagination > .newer {
+	float: right;
+}
+
+/* ================= Sidebar Panel ================= */
+#main_sidebar {
+	padding-right: 0;
+}
+
+#main_sidebar > ul > li{
+	list-style: none;
+}
+
+@media (max-width: 767px) {
+	#main_sidebar {
+		padding-right: 15px;
+	}
+}
+
+.sidebar-panel {
+	margin-top: 1.2em;
+}
+
+.sidebar-panel > .panel-body {
+	/*text-align: center;*/
+
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.sidebar-panel > .panel-body .img-dmb {
+	margin-bottom: 10px;
+}
+
+.sidebar-body > ul {
+	
+}
+
+/* ================= News Panel ================= */
+
+/* == Image Aligment == */
+.news-panel .alignleft,
+#page-article .alignleft {
+	float: left;
+
+	margin-right: 10px;
+	margin-bottom: 2px;
+}
+
+.news-panel .alignright,
+#page-article .alignleft {
+	float: right;
+
+	margin-right: 10px;
+	margin-bottom: 2px;
+}
+
+.news-panel .aligncenter,
+#page-article .alignleft {
+	display: block;
+
+	margin-left: auto;
+	margin-right: auto;
+
+	/*margin-right: 10px;
+	margin-bottom: 2px;*/
+}
+
+.readmore {
+	float: right;
+}
+
+.attachment-post-thumb {
+	float: left;
+
+	margin-right: 10px;
+	margin-bottom: 1px;
+}
+
+/* ================= Carousel ================= */
+#carousel-ctr {
+	width: 100%;
+	
+	padding: 0;
+}
+
+.carousel-title {
+	position:absolute;
+	top: 20px;
+
+	z-index: 2;
+
+	padding: 10px;
+
+	background-color: rgba(248,152,29,1.0);
+	color: #fff;
+
+	text-decoration: none;
+	font-size: 36pt;
+}
+
+/* Extra Small */
+@media (max-width: 767px) {
+	.carousel-title {
+		top: 5px;
+		font-size: 14pt;
+		padding: 2px;
+	}
+}
+/* Medium Devices */
+@media (min-width: 768px) and (max-width: 991px) {
+	.carousel-title {
+		top: 10px;
+		font-size: 16pt;
+		padding: 5px;
+	}
+}
+@media (min-width: 992px) and (max-width: 1199px) { 
+
+}
+@media (min-width: 1200px) { 
+	
+}
+
+.attachment-carousel-thumb {
+	/*filter: blur(1000px);*/
+
+	filter: blur(5px);
+	-webkit-filter: blur(5px);
+	z-index: 1;
+}
+
+/* XS Devices */
+/*@media (max-width: 767px) {
+	#carousel-ctr {
+		width: 100%;
+		padding: 0;
+	}
+}*/
+
+/* SM Devices */
+/*@media (max-width: 992px) {
+	#carousel-ctr {
+		width: 90%;
+	}
+}*/
+
+/* MD Devices */
+/*@media (max-width: 1200px) {
+	#carousel-ctr {
+		width: 80%;
+	}
+}*/
+
+/* ================= Support Clases ================= */
+
+#desc_ctr h1 {
+	margin-top: 0px;
+}
+
+.no-padding{
+	padding: 0px;
+}
+
+#page_foot{
+	padding: 0px;
+}
+
+.load-page{
+	font-size: 14pt;
+}
+
+.toolbar {
+	margin-bottom: 10px;
+}
+
+@media (max-width: 767px){
+	.side_menu, .side_tbl{
+		padding: 0;
+	}
+
+	.no-padding-xs {
+		padding: 0;
+	}
+
+	.side_tbl{
+		padding-top: 10px;
+	}	
+
+}
