@@ -145,7 +145,7 @@
 		//Carousel Section
 		$wp_customize->add_section('tau_carousel_colors', array(
 			'title' => __('Carousel Colors', 'tau_theme'),
-			'priority' => 11
+			'priority' => 12
 		));
 
 		// Carousel Title Color
@@ -179,7 +179,79 @@
 			'settings' => "tau_carousel_indicator_col"
 		)) );
 
+		/* Customize Navbar Dropdown Colors */
 
+		// Navbar Dropdown Colors
+		$wp_customize->add_section('tau_dropdown_colors', array(
+			'title' => __('Navbar Dropdown Colors', 'tau_theme'),
+			'priority' => 11
+		));
+		
+		// Navbar Dropdown Background
+		$wp_customize->add_setting('tau_navbar_dropdown_bg_cl', array(
+			'default' => "#fff",
+			'transport' => 'refresh'
+		));
+		$wp_customize->add_control(new WP_Customize_Color_Control( $wp_customize, 'tau_navbar_dropdown_bg_md', array (
+			'label' => __('Background', 'tau_theme'),
+			'section' => "tau_dropdown_colors",
+			'settings' => "tau_navbar_dropdown_bg_cl"
+		)) );
+
+		// Navbar Dropdown Text
+		$wp_customize->add_setting('tau_navbar_dropdown_text_cl', array(
+			'default' => "#000",
+			'transport' => 'refresh'
+		));
+		$wp_customize->add_control(new WP_Customize_Color_Control( $wp_customize, 'tau_navbar_dropdown_text_md', array (
+			'label' => __('Text', 'tau_theme'),
+			'section' => "tau_dropdown_colors",
+			'settings' => "tau_navbar_dropdown_text_cl"
+		)) );
+
+		// Navbar Dropdown Item (Hover)
+		$wp_customize->add_setting('tau_navbar_dropdown_hov_cl', array(
+			'default' => "#f5f5f5",
+			'transport' => 'refresh'
+		));
+		$wp_customize->add_control(new WP_Customize_Color_Control( $wp_customize, 'tau_navbar_dropdown_hov_md', array (
+			'label' => __('Item (Hover)', 'tau_theme'),
+			'section' => "tau_dropdown_colors",
+			'settings' => "tau_navbar_dropdown_hov_cl"
+		)) );
+
+		// Navbar Dropdown Item Text (Hover)
+		$wp_customize->add_setting('tau_navbar_dropdown_hov_text_cl', array(
+			'default' => "#000",
+			'transport' => 'refresh'
+		));
+		$wp_customize->add_control(new WP_Customize_Color_Control( $wp_customize, 'tau_navbar_dropdown_hov_text_md', array (
+			'label' => __('Item Text (Hover)', 'tau_theme'),
+			'section' => "tau_dropdown_colors",
+			'settings' => "tau_navbar_dropdown_hov_text_cl"
+		)) );
+
+		// Navbar Dropdown Item (Active)
+		$wp_customize->add_setting('tau_navbar_dropdown_act_cl', array(
+			'default' => "#ffae46",
+			'transport' => 'refresh'
+		));
+		$wp_customize->add_control(new WP_Customize_Color_Control( $wp_customize, 'tau_navbar_dropdown_act_md', array (
+			'label' => __('Item (Active)', 'tau_theme'),
+			'section' => "tau_dropdown_colors",
+			'settings' => "tau_navbar_dropdown_act_cl"
+		)) );
+
+		// Navbar Dropdown Item Text (Active)
+		$wp_customize->add_setting('tau_navbar_dropdown_act_text_cl', array(
+			'default' => "#fff",
+			'transport' => 'refresh'
+		));
+		$wp_customize->add_control(new WP_Customize_Color_Control( $wp_customize, 'tau_navbar_dropdown_act_text_md', array (
+			'label' => __('Item Text (Active)', 'tau_theme'),
+			'section' => "tau_dropdown_colors",
+			'settings' => "tau_navbar_dropdown_act_text_cl"
+		)) );
 
 	}
 	add_action('customize_register', 'tau_theme_customizer');
@@ -188,12 +260,23 @@
 	function setup_tau_custom_css() {
 	?>
 		<style type="text/css">
+			/*
+				Dropdown Background: tau_navbar_dropdown_bg_cl
+				Dropdown Background (Text): tau_navbar_dropdown_text_cl
+
+				Dropdown Item (Hover): tau_navbar_dropdown_hov_cl
+				Dropdown Item Text (Hover): tau_navbar_dropdown_hov_text_cl
+
+				Dropdown Item (Active): tau_navbar_dropdown_act_cl
+				Dropdown Item Text (Active): tau_navbar_dropdown_act_text_cl
+			*/
+
 			/* Carousel Title */
 			.carousel-title {
 				background-color: <?php echo get_theme_mod('tau_carousel_title_cl'); ?>;
 				color: <?php echo get_theme_mod('tau_carousel_title_txt_cl'); ?>;
 			}
-
+			/* Carousel Indicators */
 			.carousel-indicators > li {
 				border-color: <?php echo get_theme_mod('tau_carousel_indicator_col'); ?>;
 			}
@@ -242,12 +325,29 @@
 				color: <?php echo get_theme_mod('tau_navbar_act_text_cl'); ?>;
 				background-color: <?php echo get_theme_mod('tau_navbar_act_cl'); ?>;
 			}
+
+			
+			/* Dropdown Menu */
+			.navbar-default .navbar-nav .dropdown-menu {
+				background-color: <?php echo get_theme_mod('tau_navbar_dropdown_bg_cl'); ?> ;
+			}
+			/* Dropdown Menu Item  */
+			.dropdown-menu > li > a,
+			.dropdown-menu > li > a {
+				color: <?php echo get_theme_mod('tau_navbar_dropdown_text_cl'); ?>;
+			}
 			/* Dropdown Menu Item (Active)  */
 			.dropdown-menu > .active > a,
 			.dropdown-menu > .active > a:hover,
 			.dropdown-menu > .active > a:focus {
-				color: <?php echo get_theme_mod('tau_navbar_act_text_cl'); ?>;
-				background-color: <?php echo get_theme_mod('tau_navbar_act_cl'); ?>;
+				color: <?php echo get_theme_mod('tau_navbar_dropdown_act_text_cl'); ?>;
+				background-color: <?php echo get_theme_mod('tau_navbar_dropdown_act_cl'); ?>;
+			}
+			/* Navbar Item (Hover) */
+			.dropdown-menu > li > a:hover,
+			.dropdown-menu > li > a:focus {
+				background-color: <?php echo get_theme_mod('tau_navbar_dropdown_hov_cl'); ?>;
+				color: <?php echo get_theme_mod('tau_navbar_dropdown_hov_text_cl'); ?>;
 			}
 			/* Dropdown Menu (Mobile Style) */
 			@media (max-width: 767px) {
