@@ -263,11 +263,19 @@
 		tau_add_section($wp_customize, "News Panel", "news_panel", 13);
 		tau_add_color($wp_customize, "Panel Border", "#ddd", "border", "news_panel");
 
+		tau_add_color($wp_customize, "Panel Head", "#f5f5f5", "head", "news_panel");
+		tau_add_color($wp_customize, "Panel Head (Text)", "#333", "head_text", "news_panel");
+
+		tau_add_color($wp_customize, "Panel Body", "#fff", "body", "news_panel");
+		tau_add_color($wp_customize, "Panel Body (Text)", "#333", "body_text", "news_panel");
+
+		tau_add_color($wp_customize, "Panel Footer", "#f5f5f5", "foot", "news_panel");
+		tau_add_color($wp_customize, "Panel Footer (Text)", "#333", "foot_text", "news_panel");
+
 	}
 	add_action('customize_register', 'tau_theme_customizer');
 
 	function tau_add_color($wp_customize, $label, $default, $slug, $section_slug) {
-		echo "tau_".$section_slug."_".$slug."_color";
 		$wp_customize->add_setting("tau_".$section_slug."_".$slug."_color", array(
 			'default' => $default,
 			'transport' => 'refresh'
@@ -295,20 +303,22 @@
 		<style type="text/css">
 			/* Panel Colors */
 			.news-panel {
-				/*border-color: <?php echo get_theme_mod('tau_news_panel_brd_cl'); ?>;*/
 				border-color: <?php tau_the_color("border","news_panel") ?>
 			}
 			.news-panel > .panel-heading {
-				background-color: <?php echo get_theme_mod('tau_news_panel_head_cl'); ?>;
-				color: <?php echo get_theme_mod('tau_news_panel_head_txt_cl'); ?>;
+				border-color: <?php tau_the_color("border","news_panel") ?>
+				background-color: <?php tau_the_color("head", "news_panel"); ?>;
+				color: <?php tau_the_color("head_text", "news_panel"); ?>;
 			}
 			.news-panel > .panel-body {
-				background-color: <?php echo get_theme_mod('tau_news_panel_body_cl'); ?>;
-				color: <?php echo get_theme_mod('tau_news_panel_body_txt_cl'); ?>;
+				border-color: <?php tau_the_color("border","news_panel") ?>
+				background-color: <?php tau_the_color("body", "news_panel"); ?>;
+				color: <?php tau_the_color("body_text", "news_panel"); ?>;
 			}
 			.news-panel > .panel-footer {
-				background-color: <?php echo get_theme_mod('tau_news_panel_foot_cl'); ?>;
-				color: <?php echo get_theme_mod('tau_news_panel_foot_txt_cl'); ?>;
+				border-color: <?php tau_the_color("border","news_panel") ?>
+				background-color: <?php tau_the_color("foot", "news_panel"); ?>;
+				color: <?php tau_the_color("foot_text", "news_panel"); ?>;
 			}
 
 			/* Carousel Title */
