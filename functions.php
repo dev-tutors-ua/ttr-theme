@@ -112,46 +112,13 @@
 		tau_add_color($wp_customize, "Item (Active)", "#b56204", "item_active", "dropdown");
 		tau_add_color($wp_customize, "Item Text (Active)", "#fff", "item_txt_active", "dropdown");
 
+		/* Custom Carousel Colors */
+		tau_add_section($wp_customize, "Carousel Colors", "carousel", 12);
 
-		/* Customize Carousel Colors */
-		
-		//Carousel Section
-		$wp_customize->add_section('tau_carousel_colors', array(
-			'title' => __('Carousel Colors', 'tau_theme'),
-			'priority' => 12
-		));
+		tau_add_color($wp_customize, "Title", "#b56204", "title", "carousel");
+		tau_add_color($wp_customize, "Title (Text)", "#fff", "title_text", "carousel");
 
-		// Carousel Title Color
-		$wp_customize->add_setting('tau_carousel_title_cl', array(
-			'default' => "#F8981D",
-			'transport' => 'refresh'
-		));
-		$wp_customize->add_control(new WP_Customize_Color_Control( $wp_customize, 'tau_carousel_title_cl_md', array (
-			'label' => __('Carousel Title', 'tau_theme'),
-			'section' => "tau_carousel_colors",
-			'settings' => "tau_carousel_title_cl"
-		)) );
-		// Carousel Title Text Color
-		$wp_customize->add_setting('tau_carousel_title_txt_cl', array(
-			'default' => "#fff",
-			'transport' => 'refresh'
-		));
-		$wp_customize->add_control(new WP_Customize_Color_Control( $wp_customize, 'tau_carousel_title_txt_cl_md', array (
-			'label' => __('Carousel Title Text', 'tau_theme'),
-			'section' => "tau_carousel_colors",
-			'settings' => "tau_carousel_title_txt_cl"
-		)) );
-		// Carousel Indicator Color
-		$wp_customize->add_setting('tau_carousel_indicator_col', array(
-			'default' => "#fff",
-			'transport' => 'refresh'
-		));
-		$wp_customize->add_control(new WP_Customize_Color_Control( $wp_customize, 'tau_carousel_indicator_col_md', array (
-			'label' => __('Carousel Indicator', 'tau_theme'),
-			'section' => "tau_carousel_colors",
-			'settings' => "tau_carousel_indicator_col"
-		)) );
-
+		tau_add_color($wp_customize, "Indicator", "#fff", "indicator", "carousel");
 
 		/* Customize News Panel */
 		tau_add_section($wp_customize, "News Panel Color", "news_panel", 13);
@@ -229,17 +196,17 @@
 			}
 
 
-			/* Carousel Title */
+			/* ====== Carousel Title ====== */
 			.carousel-title {
-				background-color: <?php echo get_theme_mod('tau_carousel_title_cl'); ?>;
-				color: <?php echo get_theme_mod('tau_carousel_title_txt_cl'); ?>;
+				background-color: <?php tau_the_color("title", "carousel"); ?>;
+				color: <?php tau_the_color("title_text", "carousel"); ?>;
 			}
 			/* Carousel Indicators */
 			.carousel-indicators > li {
-				border-color: <?php echo get_theme_mod('tau_carousel_indicator_col'); ?>;
+				border-color: <?php tau_the_color("indicator", "carousel"); ?>;
 			}
 			.carousel-indicators > .active {
-				background-color: <?php echo get_theme_mod('tau_carousel_indicator_col'); ?>;
+				background-color: <?php tau_the_color("indicator", "carousel"); ?>;
 			}
 
 			/* ===== Navbar ===== */
