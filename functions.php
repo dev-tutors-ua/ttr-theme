@@ -56,10 +56,15 @@
 
 
 		/* Navbar Colors */
+		$wp_customize->add_section('tau_colors', array(
+			'title' => __('Colors', 'tau_theme'),
+			'priority' => 10
+		));
 
 		// Colors Section
 		$wp_customize->add_section('tau_navbar_colors', array(
 			'title' => __('Navbar Colors', 'tau_theme'),
+			'section' => "tau_colors",
 			'priority' => 10
 		));
 
@@ -253,23 +258,58 @@
 			'settings' => "tau_navbar_dropdown_act_text_cl"
 		)) );
 
+
+		/* Customize News Panel */
+		tau_add_section($wp_customize, "News Panel", "news_panel", 13);
+		tau_add_color($wp_customize, "Panel Border", "#ddd", "border", "news_panel");
+
 	}
 	add_action('customize_register', 'tau_theme_customizer');
+
+	function tau_add_color($wp_customize, $label, $default, $slug, $section_slug) {
+		echo "tau_".$section_slug."_".$slug."_color";
+		$wp_customize->add_setting("tau_".$section_slug."_".$slug."_color", array(
+			'default' => $default,
+			'transport' => 'refresh'
+		));
+		$wp_customize->add_control(new WP_Customize_Color_Control( $wp_customize, "tau_".$section_slug."_".$slug."_md", array (
+			'label' => __($label, 'tau_theme'),
+			'section' => "tau_".$section_slug."_section",
+			'settings' => "tau_".$section_slug."_".$slug."_color"
+		)) );
+	}
+	function tau_add_section($wp_customize, $label, $slug, $priority) {
+		$wp_customize->add_section("tau_".$slug."_section", array(
+			'title' => __($label, 'tau_theme'),
+			'priority' => $priority
+		));
+	}
+	function tau_the_color($slug, $section) {
+		echo get_theme_mod("tau_".$section."_".$slug."_color");
+	}
 
 	// Set Customiable Colors
 	function setup_tau_custom_css() {
 	?>
+		<?php tau_the_color("border","news_panel") ?>
 		<style type="text/css">
-			/*
-				Dropdown Background: tau_navbar_dropdown_bg_cl
-				Dropdown Background (Text): tau_navbar_dropdown_text_cl
-
-				Dropdown Item (Hover): tau_navbar_dropdown_hov_cl
-				Dropdown Item Text (Hover): tau_navbar_dropdown_hov_text_cl
-
-				Dropdown Item (Active): tau_navbar_dropdown_act_cl
-				Dropdown Item Text (Active): tau_navbar_dropdown_act_text_cl
-			*/
+			/* Panel Colors */
+			.news-panel {
+				/*border-color: <?php echo get_theme_mod('tau_news_panel_brd_cl'); ?>;*/
+				border-color: <?php tau_the_color("border","news_panel") ?>
+			}
+			.news-panel > .panel-heading {
+				background-color: <?php echo get_theme_mod('tau_news_panel_head_cl'); ?>;
+				color: <?php echo get_theme_mod('tau_news_panel_head_txt_cl'); ?>;
+			}
+			.news-panel > .panel-body {
+				background-color: <?php echo get_theme_mod('tau_news_panel_body_cl'); ?>;
+				color: <?php echo get_theme_mod('tau_news_panel_body_txt_cl'); ?>;
+			}
+			.news-panel > .panel-footer {
+				background-color: <?php echo get_theme_mod('tau_news_panel_foot_cl'); ?>;
+				color: <?php echo get_theme_mod('tau_news_panel_foot_txt_cl'); ?>;
+			}
 
 			/* Carousel Title */
 			.carousel-title {
