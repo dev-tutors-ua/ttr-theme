@@ -149,8 +149,8 @@
 		/* Customize Back To Top  */
 		tau_add_section($wp_customize, "Back To Top Color", "backtop", 15);
 
-		tau_add_color($wp_customize, "Background", "#e86256", "bg", "backtop");
-		tau_add_color($wp_customize, "Background (Hover)", "#e86256", "bg_color", "backtop");
+		tau_add_color($wp_customize, "Background", "#e4800f", "bg", "backtop");
+		tau_add_color($wp_customize, "Background (Hover)", "#e27b04", "bg_color", "backtop");
 
 	}
 	add_action('customize_register', 'tau_theme_customizer');
