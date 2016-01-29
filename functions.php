@@ -39,6 +39,29 @@
 	add_action('after_setup_theme', 'setup_tau_theme');
 
 	// =========== THEME MOD SETUP ===========
+
+	/* Color Customatisation Functins */
+	function tau_add_color($wp_customize, $label, $default, $slug, $section_slug) {
+		$wp_customize->add_setting("tau_".$section_slug."_".$slug."_color", array(
+			'default' => $default,
+			'transport' => 'refresh'
+		));
+		$wp_customize->add_control(new WP_Customize_Color_Control( $wp_customize, "tau_".$section_slug."_".$slug."_md", array (
+			'label' => __($label, 'tau_theme'),
+			'section' => "tau_".$section_slug."_section",
+			'settings' => "tau_".$section_slug."_".$slug."_color"
+		)) );
+	}
+	function tau_add_section($wp_customize, $label, $slug, $priority) {
+		$wp_customize->add_section("tau_".$slug."_section", array(
+			'title' => __($label, 'tau_theme'),
+			'priority' => $priority
+		));
+	}
+	function tau_the_color($slug, $section) {
+		echo get_theme_mod("tau_".$section."_".$slug."_color");
+	}
+
 	function tau_theme_customizer($wp_customize) {
 	
 		//Add Theme Logo Support
@@ -272,54 +295,69 @@
 		tau_add_color($wp_customize, "Panel Footer", "#f5f5f5", "foot", "news_panel");
 		tau_add_color($wp_customize, "Panel Footer (Text)", "#333", "foot_text", "news_panel");
 
+		/* Customize Sidebar Panel */
+		tau_add_section($wp_customize, "Sidebar Panel", "sidebar_panel", 14);
+		tau_add_color($wp_customize, "Panel Border", "#ddd", "border", "sidebar_panel");
+
+		tau_add_color($wp_customize, "Panel Head", "#f5f5f5", "head", "sidebar_panel");
+		tau_add_color($wp_customize, "Panel Head (Text)", "#333", "head_text", "sidebar_panel");
+
+		tau_add_color($wp_customize, "Panel Body", "#fff", "body", "sidebar_panel");
+		tau_add_color($wp_customize, "Panel Body (Text)", "#333", "body_text", "sidebar_panel");
+
+		tau_add_color($wp_customize, "Panel Footer", "#f5f5f5", "foot", "sidebar_panel");
+		tau_add_color($wp_customize, "Panel Footer (Text)", "#333", "foot_text", "sidebar_panel");
+
+
 	}
 	add_action('customize_register', 'tau_theme_customizer');
 
-	function tau_add_color($wp_customize, $label, $default, $slug, $section_slug) {
-		$wp_customize->add_setting("tau_".$section_slug."_".$slug."_color", array(
-			'default' => $default,
-			'transport' => 'refresh'
-		));
-		$wp_customize->add_control(new WP_Customize_Color_Control( $wp_customize, "tau_".$section_slug."_".$slug."_md", array (
-			'label' => __($label, 'tau_theme'),
-			'section' => "tau_".$section_slug."_section",
-			'settings' => "tau_".$section_slug."_".$slug."_color"
-		)) );
-	}
-	function tau_add_section($wp_customize, $label, $slug, $priority) {
-		$wp_customize->add_section("tau_".$slug."_section", array(
-			'title' => __($label, 'tau_theme'),
-			'priority' => $priority
-		));
-	}
-	function tau_the_color($slug, $section) {
-		echo get_theme_mod("tau_".$section."_".$slug."_color");
-	}
+	
 
 	// Set Customiable Colors
 	function setup_tau_custom_css() {
 	?>
 		<?php tau_the_color("border","news_panel") ?>
 		<style type="text/css">
-			/* Panel Colors */
+			/* News Panel Colors */
 			.news-panel {
-				border-color: <?php tau_the_color("border","news_panel") ?>
+				border-color: <?php tau_the_color("border","news_panel") ?>;
 			}
 			.news-panel > .panel-heading {
-				border-color: <?php tau_the_color("border","news_panel") ?>
+				border-color: <?php tau_the_color("border","news_panel") ?>;
 				background-color: <?php tau_the_color("head", "news_panel"); ?>;
 				color: <?php tau_the_color("head_text", "news_panel"); ?>;
 			}
 			.news-panel > .panel-body {
-				border-color: <?php tau_the_color("border","news_panel") ?>
+				border-color: <?php tau_the_color("border","news_panel") ?>;
 				background-color: <?php tau_the_color("body", "news_panel"); ?>;
 				color: <?php tau_the_color("body_text", "news_panel"); ?>;
 			}
 			.news-panel > .panel-footer {
-				border-color: <?php tau_the_color("border","news_panel") ?>
+				border-color: <?php tau_the_color("border","news_panel") ?>;
 				background-color: <?php tau_the_color("foot", "news_panel"); ?>;
 				color: <?php tau_the_color("foot_text", "news_panel"); ?>;
 			}
+			/* Sidebar Panel Colors */
+			.sidebar-panel {
+				border-color: <?php tau_the_color("border","sidebar_panel") ?>;
+			}
+			.sidebar-panel > .panel-heading {
+				border-color: <?php tau_the_color("border","sidebar_panel") ?>;
+				background-color: <?php tau_the_color("head", "sidebar_panel"); ?>;
+				color: <?php tau_the_color("head_text", "sidebar_panel"); ?>;
+			}
+			.sidebar-panel > .panel-body {
+				border-color: <?php tau_the_color("border","sidebar_panel") ?>;
+				background-color: <?php tau_the_color("body", "sidebar_panel"); ?>;
+				color: <?php tau_the_color("body_text", "sidebar_panel"); ?>;
+			}
+			.sidebar-panel > .panel-footer {
+				border-color: <?php tau_the_color("border","sidebar_panel") ?>;
+				background-color: <?php tau_the_color("foot", "sidebar_panel"); ?>;
+				color: <?php tau_the_color("foot_text", "sidebar_panel"); ?>;
+			}
+
 
 			/* Carousel Title */
 			.carousel-title {
