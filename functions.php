@@ -99,6 +99,20 @@
 		tau_add_color($wp_customize, "Item (Active)", "#b56204", "item_active", "navbar");
 		tau_add_color($wp_customize, "Item Text (Active)", "#fff", "item_txt_active", "navbar");
 
+		/* Custom Dropdown Colors */
+		tau_add_section($wp_customize, "Dropdown Colors", "dropdown", 11);
+
+		tau_add_color($wp_customize, "Background", "#e4800f", "background", "dropdown");
+		tau_add_color($wp_customize, "Border", "#ccc", "border", "dropdown");
+		tau_add_color($wp_customize, "Text", "#fff", "text", "dropdown");
+
+		tau_add_color($wp_customize, "Item (Hover)", "#b56204", "item_hover", "dropdown");
+		tau_add_color($wp_customize, "Item Text (Hover)", "#fff", "item_txt_hover", "dropdown");
+
+		tau_add_color($wp_customize, "Item (Active)", "#b56204", "item_active", "dropdown");
+		tau_add_color($wp_customize, "Item Text (Active)", "#fff", "item_txt_active", "dropdown");
+
+
 		/* Customize Carousel Colors */
 		
 		//Carousel Section
@@ -136,80 +150,6 @@
 			'label' => __('Carousel Indicator', 'tau_theme'),
 			'section' => "tau_carousel_colors",
 			'settings' => "tau_carousel_indicator_col"
-		)) );
-
-		/* Customize Navbar Dropdown Colors */
-
-		// Navbar Dropdown Colors
-		$wp_customize->add_section('tau_dropdown_colors', array(
-			'title' => __('Navbar Dropdown Colors', 'tau_theme'),
-			'priority' => 11
-		));
-		
-		// Navbar Dropdown Background
-		$wp_customize->add_setting('tau_navbar_dropdown_bg_cl', array(
-			'default' => "#fff",
-			'transport' => 'refresh'
-		));
-		$wp_customize->add_control(new WP_Customize_Color_Control( $wp_customize, 'tau_navbar_dropdown_bg_md', array (
-			'label' => __('Background', 'tau_theme'),
-			'section' => "tau_dropdown_colors",
-			'settings' => "tau_navbar_dropdown_bg_cl"
-		)) );
-
-		// Navbar Dropdown Text
-		$wp_customize->add_setting('tau_navbar_dropdown_text_cl', array(
-			'default' => "#000",
-			'transport' => 'refresh'
-		));
-		$wp_customize->add_control(new WP_Customize_Color_Control( $wp_customize, 'tau_navbar_dropdown_text_md', array (
-			'label' => __('Text', 'tau_theme'),
-			'section' => "tau_dropdown_colors",
-			'settings' => "tau_navbar_dropdown_text_cl"
-		)) );
-
-		// Navbar Dropdown Item (Hover)
-		$wp_customize->add_setting('tau_navbar_dropdown_hov_cl', array(
-			'default' => "#f5f5f5",
-			'transport' => 'refresh'
-		));
-		$wp_customize->add_control(new WP_Customize_Color_Control( $wp_customize, 'tau_navbar_dropdown_hov_md', array (
-			'label' => __('Item (Hover)', 'tau_theme'),
-			'section' => "tau_dropdown_colors",
-			'settings' => "tau_navbar_dropdown_hov_cl"
-		)) );
-
-		// Navbar Dropdown Item Text (Hover)
-		$wp_customize->add_setting('tau_navbar_dropdown_hov_text_cl', array(
-			'default' => "#000",
-			'transport' => 'refresh'
-		));
-		$wp_customize->add_control(new WP_Customize_Color_Control( $wp_customize, 'tau_navbar_dropdown_hov_text_md', array (
-			'label' => __('Item Text (Hover)', 'tau_theme'),
-			'section' => "tau_dropdown_colors",
-			'settings' => "tau_navbar_dropdown_hov_text_cl"
-		)) );
-
-		// Navbar Dropdown Item (Active)
-		$wp_customize->add_setting('tau_navbar_dropdown_act_cl', array(
-			'default' => "#ffae46",
-			'transport' => 'refresh'
-		));
-		$wp_customize->add_control(new WP_Customize_Color_Control( $wp_customize, 'tau_navbar_dropdown_act_md', array (
-			'label' => __('Item (Active)', 'tau_theme'),
-			'section' => "tau_dropdown_colors",
-			'settings' => "tau_navbar_dropdown_act_cl"
-		)) );
-
-		// Navbar Dropdown Item Text (Active)
-		$wp_customize->add_setting('tau_navbar_dropdown_act_text_cl', array(
-			'default' => "#fff",
-			'transport' => 'refresh'
-		));
-		$wp_customize->add_control(new WP_Customize_Color_Control( $wp_customize, 'tau_navbar_dropdown_act_text_md', array (
-			'label' => __('Item Text (Active)', 'tau_theme'),
-			'section' => "tau_dropdown_colors",
-			'settings' => "tau_navbar_dropdown_act_text_cl"
 		)) );
 
 
@@ -347,25 +287,25 @@
 			
 			/* Dropdown Menu */
 			.navbar-default .navbar-nav .dropdown-menu {
-				background-color: <?php echo get_theme_mod('tau_navbar_dropdown_bg_cl'); ?> ;
+				background-color: <?php tau_the_color("background", "dropdown"); ?>;
 			}
 			/* Dropdown Menu Item  */
 			.dropdown-menu > li > a,
 			.dropdown-menu > li > a {
-				color: <?php echo get_theme_mod('tau_navbar_dropdown_text_cl'); ?>;
+				color: <?php tau_the_color("text", "dropdown"); ?>;
 			}
 			/* Dropdown Menu Item (Active)  */
 			.dropdown-menu > .active > a,
 			.dropdown-menu > .active > a:hover,
 			.dropdown-menu > .active > a:focus {
-				color: <?php echo get_theme_mod('tau_navbar_dropdown_act_text_cl'); ?>;
-				background-color: <?php echo get_theme_mod('tau_navbar_dropdown_act_cl'); ?>;
+				background-color: <?php tau_the_color("item_active", "dropdown"); ?>;
+				color: <?php tau_the_color("item_txt_active", "dropdown"); ?>;
 			}
 			/* Navbar Item (Hover) */
 			.dropdown-menu > li > a:hover,
 			.dropdown-menu > li > a:focus {
-				background-color: <?php echo get_theme_mod('tau_navbar_dropdown_hov_cl'); ?>;
-				color: <?php echo get_theme_mod('tau_navbar_dropdown_hov_text_cl'); ?>;
+				background-color: <?php tau_the_color("item_hover", "dropdown"); ?>;
+				color: <?php tau_the_color("item_txt_hover", "dropdown"); ?>;
 			}
 			/* Dropdown Menu (Mobile Style) */
 			@media (max-width: 767px) {
@@ -373,15 +313,15 @@
 				.navbar-default .navbar-nav .open .dropdown-menu > .active > a,
 				.navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
 				.navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
-					color: <?php echo get_theme_mod('tau_navbar_act_text_cl'); ?>;
-					background-color: <?php echo get_theme_mod('tau_navbar_act_cl'); ?>;
+					background-color: <?php tau_the_color("item_active", "navbar"); ?>;
+					color: <?php tau_the_color("item_txt_active", "navbar"); ?>;
 				}
 
 				/* Dropdown Menu Item (Hover) */
 				.navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
 				.navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
-					color: <?php echo get_theme_mod('tau_navbar_hov_txt_cl'); ?>;
-					background-color: <?php echo get_theme_mod('tau_navbar_hov_cl'); ?>;
+					background-color: <?php tau_the_color("item_hover", "navbar"); ?>;
+					color: <?php tau_the_color("item_txt_hover", "navbar"); ?>;
 				}
 			}
 		</style>
