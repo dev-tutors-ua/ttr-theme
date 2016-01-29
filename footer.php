@@ -9,6 +9,10 @@
 
 	</div> <!-- /Main Page Content -->
 
+	<!-- Back To Top Button -->
+	<a href="#" class="cd-top">Top</a>
+	<script src="<?php echo Get_template_directory_uri()."/" ?>js/back-to-top.js"></script>
+
 	<!-- Bootstrap Javascript-->
 	<script src="<?php echo Get_template_directory_uri()."/" ?>bootstrap/js/bootstrap.min.js"></script>
 
