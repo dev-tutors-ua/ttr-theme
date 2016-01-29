@@ -78,13 +78,6 @@
 		)));
 
 
-		/* Navbar Colors */
-		$wp_customize->add_section('tau_colors', array(
-			'title' => __('Colors', 'tau_theme'),
-			'priority' => 10
-		));
-
-
 		/* Custom Navbar Colors */
 		tau_add_section($wp_customize, "Navbar Colors", "navbar", 10);
 
