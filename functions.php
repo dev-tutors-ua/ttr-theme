@@ -146,6 +146,11 @@
 		tau_add_color($wp_customize, "Panel Footer", "#f5f5f5", "foot", "sidebar_panel");
 		tau_add_color($wp_customize, "Panel Footer (Text)", "#333", "foot_text", "sidebar_panel");
 
+		/* Customize Back To Top  */
+		tau_add_section($wp_customize, "Back To Top Color", "backtop", 15);
+
+		tau_add_color($wp_customize, "Background", "#e86256", "bg", "backtop");
+		tau_add_color($wp_customize, "Background (Hover)", "#e86256", "bg_color", "backtop");
 
 	}
 	add_action('customize_register', 'tau_theme_customizer');
@@ -156,6 +161,13 @@
 	function setup_tau_custom_css() {
 	?>
 		<style type="text/css">
+			/* ==== Back To Top ==== */
+			.cd-top {
+				background-color: <?php tau_the_color("bg", "backtop"); ?>;
+			}
+			.cd-top:hover {
+				background-color: <?php tau_the_color("bg_color", "backtop"); ?>;
+			}
 			/* News Panel Colors */
 			.news-panel {
 				border-color: <?php tau_the_color("border","news_panel") ?>;
@@ -252,7 +264,7 @@
 			}
 
 			
-			/* Dropdown Menu */
+			/* ===== Dropdown Menu ====== */
 			.navbar-default .navbar-nav .dropdown-menu {
 				background-color: <?php tau_the_color("background", "dropdown"); ?>;
 			}
