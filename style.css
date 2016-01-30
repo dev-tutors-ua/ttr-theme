@@ -254,22 +254,25 @@ body {
 }
 
 .news-panel .alignright,
-#page-article .alignleft {
+#page-article .alignright {
 	float: right;
 
-	margin-right: 10px;
+	margin-left: 10px;
 	margin-bottom: 2px;
 }
 
 .news-panel .aligncenter,
-#page-article .alignleft {
+#page-article .aligncenter {
 	display: block;
 
 	margin-left: auto;
 	margin-right: auto;
+}
 
-	/*margin-right: 10px;
-	margin-bottom: 2px;*/
+.news-panel .alignnone,
+#page-article .alignnone {
+	width: 100%;
+	height: auto;
 }
 
 .readmore {
