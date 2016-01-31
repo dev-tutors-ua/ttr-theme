@@ -149,7 +149,6 @@
 	add_action('customize_register', 'tau_theme_customizer');
 
 
-
 	// Set Customiable Colors
 	function setup_tau_custom_css() {
 	?>
@@ -232,6 +231,7 @@
 				color: <?php tau_the_color("item_txt_hover", "navbar"); ?>;
 			}
 
+
 			/* Navbar Mobile Menu Button (Selected) */
 			.navbar-default .navbar-toggle:hover,
 			.navbar-default .navbar-toggle:focus {
@@ -299,7 +299,7 @@
 		</style>
 	<?php
 	}
-	// add_action('wp_head', 'setup_tau_custom_css');
+	add_action('wp_head', 'setup_tau_custom_css');
 
 	// =========== WIDGET SETUP ===========
 	function setup_tau_widgets() {
