@@ -20,7 +20,7 @@
 	//add_filter( 'locale', 'my_theme_localized' );
 
 	function setup_tau_theme() {
-		
+
 		// Load Text Domain
 		load_theme_textdomain('tau_theme', get_template_directory().'/lang');
 
@@ -63,7 +63,7 @@
 	}
 
 	function tau_theme_customizer($wp_customize) {
-	
+
 		//Add Theme Logo Support
 		$wp_customize->add_setting('tau_logo');
 		$wp_customize->add_section('tau_logo_section', array(
@@ -148,7 +148,7 @@
 	}
 	add_action('customize_register', 'tau_theme_customizer');
 
-	
+
 
 	// Set Customiable Colors
 	function setup_tau_custom_css() {
@@ -238,16 +238,16 @@
 				background-color: <?php tau_the_color("item_selected", "navbar"); ?>;
 			}
 			/* Navbar Item (Selected) */
-			.navbar-default .navbar-nav > .open > a, 
-			.navbar-default .navbar-nav > .open > a:hover, 
+			.navbar-default .navbar-nav > .open > a,
+			.navbar-default .navbar-nav > .open > a:hover,
 			.navbar-default .navbar-nav > .open > a:focus {
 				background-color: <?php tau_the_color("item_selected", "navbar"); ?>;
 				color: <?php tau_the_color("item_txt_selected", "navbar"); ?>;
 			}
 
 			/* Navbar Item (Active) */
-			.navbar-default .navbar-nav > .active > a, 
-			.navbar-default .navbar-nav > .active > a:hover, 
+			.navbar-default .navbar-nav > .active > a,
+			.navbar-default .navbar-nav > .active > a:hover,
 			.navbar-default .navbar-nav > .active > a:focus,
 			.navbar-default .navbar-nav > .current-menu-parent > a,
 			.navbar-default .navbar-nav > .current-menu-parent > a:hover,
@@ -256,7 +256,7 @@
 				color: <?php tau_the_color("item_txt_active", "navbar"); ?>;
 			}
 
-			
+
 			/* ===== Dropdown Menu ====== */
 			.navbar-default .navbar-nav .dropdown-menu {
 				background-color: <?php tau_the_color("background", "dropdown"); ?>;
@@ -273,7 +273,7 @@
 				background-color: <?php tau_the_color("item_active", "dropdown"); ?>;
 				color: <?php tau_the_color("item_txt_active", "dropdown"); ?>;
 			}
-			/* Navbar Item (Hover) */
+			/* Dropdown Item (Hover) */
 			.dropdown-menu > li > a:hover,
 			.dropdown-menu > li > a:focus {
 				background-color: <?php tau_the_color("item_hover", "dropdown"); ?>;
@@ -299,7 +299,7 @@
 		</style>
 	<?php
 	}
-	add_action('wp_head', 'setup_tau_custom_css');
+	// add_action('wp_head', 'setup_tau_custom_css');
 
 	// =========== WIDGET SETUP ===========
 	function setup_tau_widgets() {
@@ -332,7 +332,7 @@
 			'after_widget' => '</div> </div>'
 		));
 
-		// Register Homepage 
+		// Register Homepage
 		register_sidebar(array(
 			'name' => 'Homepage Top Bar',
 			'id' => 'home_bar'
@@ -354,7 +354,7 @@
 	}
 	add_action('wp_enqueue_scripts', 'TAU_set_style');
 
-	
+
 	// =========== READ MORE ===========
 
 	// Set Read More Length

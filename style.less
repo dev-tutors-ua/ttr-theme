@@ -1,0 +1,650 @@
+/*
+ * Theme Name: Tutor Organisation Theme (Native)
+ * Theme URI: https://github.com/dev-tutors-ua/ttr-theme
+ * Description: Theme For Ukrainian Tutor Organisation
+ * Version: 1.1.1
+ * License: GNU General Public License v2
+ * License URI: http://www.gnu.org/licenses/gpl-2.0.html
+ * Author: Fedor Bobylev
+ * Author URI: http://techblogogy.github.io
+ * GitHub Theme URI: https://github.com/dev-tutors-ua/ttr-theme
+ * GitHub Branch: master
+*/
+
+/* Navbar Colors */
+@nav_bg: #e4800f;
+@nav_hov: #b56204;
+@nav_hov_txt: #eaeaea;
+@nav_sel: #b56204;
+@nav_sel_txt: #ffffff;
+@nav_act: #b56204;
+@nav_act_txt: #ffffff;
+
+/* Dropdown Colors */
+@drp_bg: #e4800f;
+@drp_txt: #fff;
+@drp_hov: #b56204;
+@drp_hov_txt: #fff;
+@drp_act: #b56204;
+@drp_act_txt: #fff;
+
+/* Carousel */
+@crl_bg: #b56204;
+@crl_txt: #fff;
+@crl_btn: #fff;
+
+/* News Panel */
+@nws_br: #ddd;	// Border
+@nws_hd: #f5f5f5;	// Head
+@nws_hd_txt: #333;
+@nws_bd: #fff; // Body
+@nws_bd_txt: #333;
+@nws_ft: #f5f5f5;	// Footer
+@nws_ft_txt: #333;
+
+/* Sidebar Panel */
+@sbr_br: #ddd;	// Border
+@sbr_hd: #f5f5f5;	// Head
+@sbr_hd_txt: #333;
+@sbr_bd: #fff; // Body
+@sbr_bd_txt: #333;
+@sbr_ft: #f5f5f5;	// Footer
+@sbr_ft_txt: #333;
+
+/* Back Top Top */
+@top_bg: #e4800f;
+@top_bg_hov: #e27b04;
+
+/* ================= Sidebar List Styling ================= */
+.sidebar-body ul{
+	padding: 0px;
+}
+
+.sidebar-body li{
+
+	list-style-type: none;
+	/*margin-bottom: 4px;*/
+
+	padding: 4px;
+	/*border: 1px dashed #ddd;
+	border-radius: 2px;*/
+}
+
+.sidebar-body li a {
+	text-decoration: underline;
+}
+
+.current-menu-item a{
+	text-decoration: none !important;
+
+	color: #000;
+}
+
+/* ================= Main Navbar ================= */
+
+body {
+	/*background-color: #f7f7f7;*/
+}
+
+#nav-logo {
+	margin: 0px;
+	padding: 2px;
+}
+
+#main-nav {
+	/*overflow: hidden !important;*/
+}
+
+/* Menu Style For LARGE Devices (Large Desktops) */
+@media (min-width: 1200px) {
+	#menu-main-menu > li > a{
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+}
+
+/* Menu Style For MEDIUM Devices (Desktops) */
+@media (min-width: 992px) and (max-width: 1200px) {
+	#menu-main-menu > li > a{
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+}
+
+/* Menu Style For SMALL Devices (Tablets) */
+@media (min-width: 768px) and (max-width: 992px) {
+	.navbar-brand{
+		font-size: 14px;
+		padding-left: 0px;
+
+		padding-top: 5px;
+		padding-buttom: 5px;
+	}
+
+	#menu-main-menu > li > a{
+		font-size: 12px;
+
+		padding-left: 5px;
+		padding-right: 5px;
+	}
+
+	#main-nav {
+		padding-right: 0px;
+	}
+}
+
+/* Navbar */
+.navbar-default {
+	border-radius: 0px;
+
+	background-color: @nav_bg;
+	border: none;
+}
+
+/* Navbar Branding Area */
+.navbar-default .navbar-brand {
+	color: #f6f6f6;
+
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+/* Navbar Branding Area (Hover) */
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+	color: @nav_hov_txt;
+	background-color: @nav_hov;
+}
+/* Navbar Branding Area (Logo) */
+.navbar-default .navbar-brand > img {
+	height: 100%;
+}
+
+
+/* Navbar Mobile Menu Button */
+.navbar-default .navbar-toggle {
+	border-color: #fff;
+}
+/* Navbar Mobile Menu Button (Selected) */
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+	background-color: @nav_sel;
+}
+/* Navbar Mobile Menu Button (Icon) */
+.navbar-default .navbar-toggle .icon-bar {
+	background-color: #fff;
+}
+
+
+/* Navbar Item */
+.navbar-default .navbar-nav > li > a {
+	color: #fff;
+}
+/* Navbar Item (Hover) */
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+	background-color: @nav_hov;
+	color: @nav_hov_txt;
+}
+
+/* Navbar Item (Active) */
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus,
+.navbar-default .navbar-nav > .current-menu-parent > a,
+.navbar-default .navbar-nav > .current-menu-parent > a:hover,
+.navbar-default .navbar-nav > .current-menu-parent > a:focus {
+	color: @nav_act_txt;
+	background-color: @nav_act;
+}
+/* Navbar Item (Selected) */
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus {
+	color: @nav_sel_txt;
+	background-color: @nav_sel;
+}
+
+/* === Dropdown Menu === */
+.navbar-default .navbar-nav .dropdown-menu {
+	background-color: @drp_bg;
+}
+/* Dropdown Menu Item */
+.dropdown-menu > li > a {
+	color: @drp_txt;
+}
+/* Dropdown Item (Hover) */
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus {
+	background-color: @drp_hov;
+	color: @drp_hov_txt;
+}
+/* Navbar Dropdown Arrow */
+.navbar-default .navbar-nav > .dropdown > a .caret {
+	border-top-color: #fff;
+	border-bottom-color: #fff;
+}
+/* Dropdown Menu Item (Active)  */
+.dropdown-menu > .active > a,
+.dropdown-menu > .active > a:hover,
+.dropdown-menu > .active > a:focus {
+	color: @drp_act_txt;
+	background-color: @drp_act;
+
+	text-decoration: none;
+	outline: 0;
+}
+/* Dropdown Menu (Mobile Style) */
+@media (max-width: 767px) {
+	/* Dropdown Menu Item */
+	.navbar-default .navbar-nav .open .dropdown-menu > li > a {
+		color: #fff;
+	}
+	/* Dropdown Menu Item (Hover) */
+	.navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+	.navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+		color: @nav_hov_txt;
+		background-color: @nav_hov;
+	}
+	/* Dropdown Menu Item (Active) */
+	.navbar-default .navbar-nav .open .dropdown-menu > .active > a,
+	.navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
+	.navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+		color: @nav_act_txt;
+		background-color: @nav_act;
+	}
+	/* ?Dropdown Menu Item (Disabled) */
+	.navbar-default .navbar-nav .open .dropdown-menu > .disabled > a,
+	.navbar-default .navbar-nav .open .dropdown-menu > .disabled > a:hover,
+	.navbar-default .navbar-nav .open .dropdown-menu > .disabled > a:focus {
+		color: #ccc;
+		background-color: transparent;
+	}
+}
+
+/* ================= Paginaition Bar ================= */
+.nav-pagination > .older {
+	float: left;
+}
+
+.nav-pagination > .newer {
+	float: right;
+}
+
+/* ================= Sidebar Panel ================= */
+#main_sidebar {
+	padding-right: 0;
+}
+
+#main_sidebar > ul > li{
+	list-style: none;
+}
+
+@media (max-width: 767px) {
+	#main_sidebar {
+		padding-right: 15px;
+	}
+}
+
+.sidebar-panel {
+	margin-top: 1.2em;
+}
+
+.sidebar-panel > .panel-body {
+	/*text-align: center;*/
+
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.sidebar-panel > .panel-body .img-dmb {
+	margin-bottom: 10px;
+}
+
+.sidebar-body > ul {
+
+}
+
+/* ================= News Panel ================= */
+.alignnone {
+	max-width: 100%;
+	height: auto;
+}
+
+.aligncenter,
+div.aligncenter {
+    display: block;
+
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 5px;
+	margin-bottom: 5px;
+
+	max-width: 100%;
+	height: auto;
+}
+
+.alignright {
+    float:right;
+	margin-left: 10px;
+	margin-bottom: 5px;
+}
+
+.alignleft {
+    float: left;
+	margin-right: 10px;
+	margin-bottom: 5px;
+}
+
+a img.alignright {
+    float:right;
+	margin-left: 10px;
+	margin-bottom: 5px;
+}
+
+a img.alignnone {
+	max-width: 100%;
+	height: auto;
+}
+
+a img.alignleft {
+    float: left;
+	margin-right: 10px;
+	margin-bottom: 5px;
+}
+
+a img.aligncenter {
+    display: block;
+
+	margin-left: auto;
+	margin-right: auto;
+
+	max-width: 100%;
+	height: auto;
+}
+
+.wp-caption {
+    background: #fff;
+    border: 1px solid #f0f0f0;
+    max-width: 100%; /* Image does not overflow the content area */
+    padding: 5px 5px 10px;
+    text-align: center;
+}
+
+.wp-caption.alignnone {
+    margin: 5px 20px 20px 0;
+}
+
+.wp-caption.alignleft {
+    margin: 5px 20px 20px 0;
+}
+
+.wp-caption.alignright {
+    margin: 5px 0 20px 20px;
+}
+
+.wp-caption img {
+    border: 0 none;
+    height: auto;
+    margin: 0;
+    max-width: 100%;
+    padding: 0;
+    width: auto;
+}
+
+.wp-caption p.wp-caption-text {
+    font-size: 12px;
+    line-height: 17px;
+	margin: 0;
+	padding: 0 4px 5px;
+}
+
+/* Text meant only for screen readers. */
+.screen-reader-text {
+	clip: rect(1px, 1px, 1px, 1px);
+	position: absolute !important;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+}
+.screen-reader-text:focus {
+	background-color: #f1f1f1;
+	border-radius: 3px;
+	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+	clip: auto !important;
+	color: #21759b;
+	display: block;
+	font-size: 14px;
+	font-size: 0.875rem;
+	font-weight: bold;
+	height: auto;
+	left: 5px;
+	line-height: normal;
+	padding: 15px 23px 14px;
+	text-decoration: none;
+	top: 5px;
+	width: auto;
+	z-index: 100000; /* Above WP toolbar. */
+}
+
+.readmore {
+	float: right;
+}
+
+.attachment-post-thumb {
+	float: left;
+
+	margin-right: 10px;
+	margin-bottom: 1px;
+}
+
+/* ================= Carousel ================= */
+#carousel-ctr {
+	width: 100%;
+
+	padding: 0;
+}
+
+.carousel-title {
+	position:absolute;
+	top: 20px;
+
+	z-index: 2;
+
+	padding: 10px;
+
+	// background-color: rgba(248,152,29,1.0);
+	background-color: @crl_bg;
+	color: @crl_txt;
+
+	text-decoration: none;
+	font-size: 36pt;
+}
+.carousel-indicators > li {
+	border-color: @crl_btn;
+}
+.carousel-indicators > .active {
+	background-color: @crl_btn;
+}
+
+/* Extra Small */
+@media (max-width: 767px) {
+	.carousel-title {
+		top: 5px;
+		font-size: 14pt;
+		padding: 2px;
+	}
+}
+/* Medium Devices */
+@media (min-width: 768px) and (max-width: 991px) {
+	.carousel-title {
+		top: 10px;
+		font-size: 16pt;
+		padding: 5px;
+	}
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+
+}
+@media (min-width: 1200px) {
+
+}
+
+.attachment-carousel-thumb {
+	/*filter: blur(1000px);*/
+
+	filter: blur(5px);
+	-webkit-filter: blur(5px);
+	z-index: 1;
+}
+
+/* XS Devices */
+/*@media (max-width: 767px) {
+	#carousel-ctr {
+		width: 100%;
+		padding: 0;
+	}
+}*/
+
+/* SM Devices */
+/*@media (max-width: 992px) {
+	#carousel-ctr {
+		width: 90%;
+	}
+}*/
+
+/* MD Devices */
+/*@media (max-width: 1200px) {
+	#carousel-ctr {
+		width: 80%;
+	}
+}*/
+
+/* ================= News Panels ================= */
+.news-panel {
+	border-color: @nws_br;
+}
+.news-panel > .panel-heading {
+	border-color: @nws_br;
+	background-color: @nws_hd;
+	color: @nws_hd_txt;
+}
+.news-panel > .panel-body{
+	border-color: @nws_br;
+	background-color: @nws_bd;
+	color: @nws_bd_txt;
+}
+.news-panel > .panel-footer{
+	border-color: @nws_br;
+	background-color: @nws_ft;
+	color: @nws_ft_txt;
+}
+/* ================= Sidebar Panels ================= */
+.sidebar-panel {
+	border-color: @sbr_br;
+}
+.sidebar-panel > .panel-heading {
+	border-color: @sbr_br;
+	background-color: @sbr_hd;
+	color: @sbr_hd_txt;
+}
+.sidebar-panel > .panel-body{
+	border-color: @sbr_br;
+	background-color: @sbr_bd;
+	color: @sbr_bd_txt;
+}
+.sidebar-panel > .panel-footer{
+	border-color: @sbr_br;
+	background-color: @sbr_ft;
+	color: @sbr_ft_txt;
+}
+
+/* ================= Support Clases ================= */
+
+#desc_ctr h1 {
+	margin-top: 0px;
+}
+
+.no-padding{
+	padding: 0px;
+}
+
+#page_foot{
+	padding: 0px;
+}
+
+.load-page{
+	font-size: 14pt;
+}
+
+.toolbar {
+	margin-bottom: 10px;
+}
+
+@media (max-width: 767px){
+	.side_menu, .side_tbl{
+		padding: 0;
+	}
+
+	.no-padding-xs {
+		padding: 0;
+	}
+
+	.side_tbl{
+		padding-top: 10px;
+	}
+
+}
+
+/* ================= Back To Top ================= */
+.cd-top {
+	display: inline-block;
+	height: 40px;
+	width: 40px;
+	position: fixed;
+	bottom: 40px;
+	right: 10px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+
+	/* image replacement properties */
+	overflow: hidden;
+	text-indent: 100%;
+	white-space: nowrap;
+	// background: #E86256 url(req-img/cd-top-arrow.svg) no-repeat center 50%;
+	background: @top_bg url(req-img/cd-top-arrow.svg) no-repeat center 50%;
+	visibility: hidden;
+	opacity: 0;
+	-webkit-transition: opacity .3s 0s, visibility 0s .3s;
+	-moz-transition: opacity .3s 0s, visibility 0s .3s;
+	transition: opacity .3s 0s, visibility 0s .3s;
+}
+.cd-top.cd-is-visible, .cd-top.cd-fade-out, .no-touch .cd-top:hover {
+	-webkit-transition: opacity .3s 0s, visibility 0s 0s;
+	-moz-transition: opacity .3s 0s, visibility 0s 0s;
+	transition: opacity .3s 0s, visibility 0s 0s;
+}
+.cd-top.cd-is-visible {
+	visibility: visible;
+	opacity: 0.8;
+}
+.cd-top.cd-fade-out {
+	opacity: .5;
+}
+.cd-top:hover {
+	// background-color: #e86256;
+	background-color: @top_bg_hov;
+	opacity: 1;
+}
+@media only screen and (min-width: 768px) {
+	.cd-top {
+		left: 20px;
+		bottom: 20px;
+	}
+}
+@media only screen and (min-width: 1024px) {
+	.cd-top {
+		height: 60px;
+		width: 60px;
+		left: 30px;
+		bottom: 30px;
+	}
+}

@@ -2,14 +2,14 @@
 
 	<!-- Main Content -->
 	<div class="container-fluid main-content no-padding">
-		
+
 		<!-- Main Content -->
 		<div class="col-sm-9 news-content no-padding">
 			<!-- Header -->
 			<div class="page-header">
 				<!-- <h2>Новини</h2> -->
 
-				<h2><?php 
+				<h2><?php
 
 				if ( is_category() ) {
 					single_cat_title();
@@ -30,7 +30,7 @@
 					<div class="panel-heading">
 						<h4 class="panel-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
 					</div>
-					
+
 					<div class="panel-body">
 						<!-- <?php the_excerpt(); ?> -->
 						<?php print_the_excerpt(); ?>
